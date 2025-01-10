@@ -14,9 +14,10 @@ const app=express()
 
 DBconnect()
 app.use(cors({
-  origin:['http://localhost:3000'],
-  methods:['GET','POST'],
-  allowedHeaders:['Content-Type','Authorization']
+  origin:['http://localhost:3000','https://mern-fe-9uqx.onrender.com'],
+  methods:['GET','POST','PUT','DELETE'],
+  allowedHeaders:['Content-Type','Authorization'],
+  credentials: true,
 }))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
