@@ -1,10 +1,11 @@
-const express=require('express')
-const path=require('path')
-const userRouter=require('./Router/user')
-const products=require('./Router/products')
+const express = require('express')
+const path = require('path')
 const DBconnect = require('./Config/db')
 const cors = require('cors')
 const env = require('dotenv')
+const productRouter = require('./Router/productRouter')
+const userRouter = require('./Router/userRouter')
+const categoryRouter = require('./Router/categoryRouter')
 env.config()
 console.log(process.env.JWT_PASSWORD);
 
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname,'public')))
 
 
 app.use('/user',userRouter)
-app.use('/products',products)
+app.use('/product',productRouter)
+app.use('/category',categoryRouter)
 
 
 app.use((err,req,res,next)=>{
