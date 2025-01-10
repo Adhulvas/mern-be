@@ -19,7 +19,6 @@ const getCategoryProducts = async (req, res) => {
 };
 
 
-
 const addProduct = async (req, res) => {
   const { name, description, price, category } = req.body;
 
